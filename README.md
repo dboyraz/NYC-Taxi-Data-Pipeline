@@ -20,10 +20,10 @@ graph LR
     E -->|"5. Read"| G["Looker Studio\nDashboard"]
     F -->|"5. Read"| G
 
-    style A fill:#f9f,stroke:#333
+    style A fill:#7B2D8E,stroke:#333,color:#fff
     style B fill:#4285F4,stroke:#333,color:#fff
     style C fill:#34A853,stroke:#333,color:#fff
-    style D fill:#FBBC04,stroke:#333
+    style D fill:#0D7377,stroke:#333,color:#fff
     style E fill:#EA4335,stroke:#333,color:#fff
     style F fill:#EA4335,stroke:#333,color:#fff
     style G fill:#ff6d01,stroke:#333,color:#fff
