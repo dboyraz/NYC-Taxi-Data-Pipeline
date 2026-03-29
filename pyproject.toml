@@ -1,0 +1,11 @@
+[project]
+name = "de-project"
+version = "0.1.0"
+description = "End-to-end NYC Yellow Taxi data pipeline on GCP (GCS → BigQuery → dbt → Looker Studio)"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "dbt-bigquery>=1.9.2",
+    "prefect>=3.6.23",
+    "pyarrow>=23.0.1",
+    "requests>=2.33.0",
+]

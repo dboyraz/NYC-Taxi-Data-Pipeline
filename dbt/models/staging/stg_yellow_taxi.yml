@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_yellow_taxi
+    description: "Cleaned and typed yellow taxi trip data"
+    columns:
+      - name: pickup_datetime
+        description: "Trip pickup timestamp"
+        tests:
+          - not_null
+      - name: payment_type_name
+        description: "Human-readable payment type"
+        tests:
+          - not_null
+      - name: fare_amount
+        description: "Base fare amount"
+        tests:
+          - not_null

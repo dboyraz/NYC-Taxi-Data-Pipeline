@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: nyc_taxi
+    database: "{{ env_var('GCP_PROJECT_ID', 'nyc-taxi-491513') }}"
+    schema: "{{ env_var('BQ_DATASET', 'nyc_taxi') }}"
+    tables:
+      - name: yellow_taxi
+        description: "Raw yellow taxi trip data partitioned by pickup datetime"

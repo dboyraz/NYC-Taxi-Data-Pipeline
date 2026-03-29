@@ -1,0 +1,39 @@
+# Secrets
+.env
+*.json
+!terraform/schemas/*.json
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/.user.yml
+
+# Data
+data/*.parquet
+data/*.csv
+
+# Claude Code
+.claude/
+
+# Task brief
+task.txt
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
