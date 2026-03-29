@@ -10,16 +10,23 @@ This project builds an end-to-end data pipeline that ingests NYC Yellow Taxi tri
 
 ## Architecture
 
-```
-NYC TLC Website          GCS (Data Lake)          BigQuery (DWH)          Looker Studio
-  [Parquet] ──download──▶ [Raw Parquet] ──load──▶ [yellow_taxi]  ──read──▶ [Dashboard]
-                                                       │
-                                                   dbt transforms
-                                                       │
-                                                  ┌────┴────┐
-                                                  ▼         ▼
-                                          [mart_daily  [mart_trips_by
-                                           _trips]      _payment]
+```mermaid
+graph LR
+    A["NYC TLC Website\n(Parquet Files)"] -->|"1. Download"| B["GCS Data Lake\n(Raw Parquet)"]
+    B -->|"2. Load"| C["BigQuery\n(yellow_taxi)"]
+    C -->|"3. dbt transform"| D["Staging\n(stg_yellow_taxi)"]
+    D -->|"4. dbt transform"| E["mart_daily_trips"]
+    D -->|"4. dbt transform"| F["mart_trips_by_payment"]
+    E -->|"5. Read"| G["Looker Studio\nDashboard"]
+    F -->|"5. Read"| G
+
+    style A fill:#f9f,stroke:#333
+    style B fill:#4285F4,stroke:#333,color:#fff
+    style C fill:#34A853,stroke:#333,color:#fff
+    style D fill:#FBBC04,stroke:#333
+    style E fill:#EA4335,stroke:#333,color:#fff
+    style F fill:#EA4335,stroke:#333,color:#fff
+    style G fill:#ff6d01,stroke:#333,color:#fff
 ```
 
 **Pipeline orchestration:** Prefect (batch mode, multi-step DAG)
