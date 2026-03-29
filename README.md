@@ -47,7 +47,7 @@ The `yellow_taxi` table is:
 
 | Model | Type | Description |
 |-------|------|-------------|
-| `stg_yellow_taxi` | View | Cleans raw data: renames columns to snake_case, maps payment type codes to names, filters out invalid trips (negative fares, zero distance, dates outside 2024) |
+| `stg_yellow_taxi` | View | Cleans raw data: renames columns to snake_case, maps payment type codes to names, filters out invalid trips (negative fares, zero distance, dates outside 2026) |
 | `mart_trips_by_payment` | Table | Aggregated trip counts and averages grouped by payment type — powers dashboard tile 1 |
 | `mart_daily_trips` | Table | Daily trip counts, revenue, and averages — powers dashboard tile 2 |
 
@@ -123,7 +123,7 @@ uv run python orchestration/flows/ingest.py
 ```
 
 This executes a 3-step Prefect flow:
-1. Downloads Jan & Feb 2024 yellow taxi parquet files from NYC TLC
+1. Downloads Jan & Feb 2026 yellow taxi parquet files from NYC TLC
 2. Uploads them to GCS data lake
 3. Loads data into the BigQuery partitioned table
 

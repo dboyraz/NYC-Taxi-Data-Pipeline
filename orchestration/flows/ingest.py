@@ -55,7 +55,7 @@ def upload_to_gcs(filepath: Path) -> str:
         return f"gs://{GCS_BUCKET}/{blob_name}"
 
     print(f"Uploading {filepath.name} to gs://{GCS_BUCKET}/{blob_name}")
-    blob.upload_from_filename(str(filepath))
+    blob.upload_from_filename(str(filepath), timeout=600)
     print(f"Upload complete: {blob_name}")
     return f"gs://{GCS_BUCKET}/{blob_name}"
 
@@ -85,7 +85,7 @@ def load_gcs_to_bigquery(gcs_uri: str) -> int:
 
 
 @flow(name="nyc-yellow-taxi-ingest", log_prints=True)
-def ingest_flow(year: int = 2024, months: list[int] | None = None):
+def ingest_flow(year: int = 2026, months: list[int] | None = None):
     """
     End-to-end pipeline: download → GCS → BigQuery.
 

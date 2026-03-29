@@ -32,7 +32,7 @@ cleaned as (
         congestion_surcharge,
         airport_fee
     from source
-    where tpep_pickup_datetime between '2024-01-01' and '2024-12-31'
+    where tpep_pickup_datetime between '2026-01-01' and '2026-12-31'
       and fare_amount > 0
       and trip_distance > 0
 )
