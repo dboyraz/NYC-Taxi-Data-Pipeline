@@ -16,3 +16,19 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: mart_hourly_trips
+    description: "Trip volume by hour of day — shows peak demand patterns"
+    columns:
+      - name: pickup_hour
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_tip_by_payment
+    description: "Average tip percentage by payment type — shows tipping behavior"
+    columns:
+      - name: payment_type_name
+        tests:
+          - unique
+          - not_null

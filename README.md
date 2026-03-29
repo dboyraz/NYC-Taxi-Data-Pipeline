@@ -57,6 +57,8 @@ The `yellow_taxi` table is:
 | `stg_yellow_taxi` | View | Cleans raw data: renames columns to snake_case, maps payment type codes to names, filters out invalid trips (negative fares, zero distance, dates outside 2026) |
 | `mart_trips_by_payment` | Table | Aggregated trip counts and averages grouped by payment type — powers dashboard tile 1 |
 | `mart_daily_trips` | Table | Daily trip counts, revenue, and averages — powers dashboard tile 2 |
+| `mart_hourly_trips` | Table | Trip volume by hour of day — powers dashboard tile 3 |
+| `mart_tip_by_payment` | Table | Average tip percentage by payment type — powers dashboard tile 4 |
 
 ## Prerequisites
 
